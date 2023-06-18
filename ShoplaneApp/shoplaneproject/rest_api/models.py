@@ -18,7 +18,7 @@ class Ratings(models.Model):
     count=models.IntegerField()
 
     class Meta:
-        abstract = False
+       abstract = False
     
 class Products(models.Model):
     id=models.IntegerField(primary_key=True)
@@ -28,3 +28,4 @@ class Products(models.Model):
     category=models.TextField()
     image=models.CharField(max_length=5000)
     rating=models.EmbeddedField(model_container=Ratings,null=True)
+    # rating=Ratings(models.Model) #Creating an object of Ratings class

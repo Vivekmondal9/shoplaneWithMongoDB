@@ -17,10 +17,10 @@ class userSignupView(View):
 class LoginView(View):
     def post(self,request):
         login_data=json.loads(request.body)
-        email=login_data["username"]
+        email=login_data["email"]
         password=login_data["password"]
         try:
-            logg=UserSignup.objects.filter(email=email).values()
+            logg=UserSignup.objects.filter(email=email,password=password).values()
 
             for item in list(logg):
                 if item["password"]==password:
